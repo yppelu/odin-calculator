@@ -1,6 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
 * {
   box-sizing: border-box;
-  font-size: 100%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 110%;
+  font-weight: 400;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: #EEEEE4;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.calculator {
+  background-color: #FFFFFF;
+  box-shadow: 0 0 5px #AAAAAA;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.display {
+  aspect-ratio: 90 / 30;
+  width: 90%;
+  border-bottom: 1px solid #D5D5D5;
+  font-size: 140%;
+  font-weight: 500;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+button {
+  aspect-ratio: 1 / 1;
+  width: 25%;
+  border: 1vh solid #FFFFFF;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.operator,
+.number {
+  background-color: #FFFFFF;
+}
+
+.operator {
+  color: #EA592A;
+}
+
+.number {
+  color: #100102;
+}
+
+.operator:hover,
+.number:hover {
+  background-color: #EEEEE4;
+}
+
+.operator:active,
+.number:active {
+  background-color: #D5D5D5;
+}
+
+.equals {
+  background-color: #FF733C;
+  color: #FFFFFF;
+}
+
+.equals:hover {
+  border-width: 2vh;
+}
+
+.equals:active {
+  background-color: #EA592A;
 }
