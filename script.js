@@ -1,6 +1,17 @@
 const calculator = document.querySelector('.calculator');
-
 calculator.style.width = calculateMainBlockWidth();
+const display = document.querySelector('.display');
+
+const mathOperations = {
+  '/'(num1, num2) { return num1 / num2 },
+  '*'(num1, num2) { return num1 * num2 },
+  '-'(num1, num2) { return num1 - num2 },
+  '+'(num1, num2) { return num1 + num2 }
+}
+
+let firstNumber = '0';
+let secondNumber = '0';
+let operator = '';
 
 function calculateMainBlockWidth() {
   return (window.innerWidth > window.innerHeight)
