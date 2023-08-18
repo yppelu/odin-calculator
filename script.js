@@ -1,13 +1,9 @@
 const calculator = document.querySelector('.calculator');
 
-calculator.style.width = calculateMainBlockSize();
+calculator.style.width = calculateMainBlockWidth();
 
-function calculateMainBlockSize() {
-  let size;
-  if (window.innerWidth > window.innerHeight) {
-    size = '50vh';
-  } else {
-    size = '80%';
-  }
-  return size;
+function calculateMainBlockWidth() {
+  return (window.innerWidth > window.innerHeight)
+    ? `${window.innerHeight * 0.5}px`
+    : width = `${window.innerWidth * 0.8}px`;
 }

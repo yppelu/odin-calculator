@@ -2,8 +2,8 @@
 
 * {
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-  font-size: 110%;
+  font-family: 'Roboto', Verdana, sans-serif;
+  font-size: 100%;
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -13,7 +13,6 @@ body {
   background-color: #EEEEE4;
   display: flex;
   justify-content: center;
-  padding: 20px;
 }
 
 .calculator {
@@ -23,13 +22,14 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 20px;
 }
 
 .display {
   aspect-ratio: 90 / 30;
   width: 90%;
   border-bottom: 1px solid #D5D5D5;
-  font-size: 140%;
+  font-size: 150%;
   font-weight: 500;
   display: flex;
   justify-content: flex-end;
@@ -38,10 +38,11 @@ body {
 
 button {
   aspect-ratio: 1 / 1;
-  width: 25%;
-  border: 1vh solid #FFFFFF;
+  width: 20%;
+  border: none;
   border-radius: 50%;
   cursor: pointer;
+  margin: 2.5%;
   transition: 0.1s;
 }
 
@@ -54,10 +55,6 @@ button {
   color: #EA592A;
 }
 
-.number {
-  color: #100102;
-}
-
 .operator:hover,
 .number:hover {
   background-color: #EEEEE4;
@@ -65,7 +62,7 @@ button {
 
 .operator:active,
 .number:active {
-  background-color: #D5D5D5;
+  background-color: #DDDDD4;
 }
 
 .equals {
@@ -74,7 +71,8 @@ button {
 }
 
 .equals:hover {
-  border-width: 2vh;
+  width: 17%;
+  margin: 4%;
 }
 
 .equals:active {
