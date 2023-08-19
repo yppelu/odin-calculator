@@ -28,6 +28,10 @@ function clearAll() {
   operator = '';
 }
 
+function inverseNumber(number) {
+  return -number;
+}
+
 function removeLastDigit(number) {
   return Math.floor(number / 10);
 }
