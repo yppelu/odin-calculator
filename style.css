@@ -47,7 +47,7 @@ button {
 }
 
 .operator,
-.number {
+.digit {
   background-color: #FFFFFF;
 }
 
@@ -56,12 +56,12 @@ button {
 }
 
 .operator:hover,
-.number:hover {
+.digit:hover {
   background-color: #EEEEE4;
 }
 
 .operator:active,
-.number:active {
+.digit:active {
   background-color: #DDDDD4;
 }
 
