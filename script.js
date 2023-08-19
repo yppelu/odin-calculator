@@ -104,3 +104,8 @@ function removeOneDigit() {
     secondNumber = secondNumber.slice(0, -1);
   }
 }
+
+function updateDisplay() {
+  if (operator === '' || operator === '=') display.textContent = firstNumber;
+  else display.textContent = secondNumber;
+}
