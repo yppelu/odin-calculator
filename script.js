@@ -31,18 +31,19 @@ calculator.addEventListener('click', (e) => {
     if (e.target.classList.contains('multiply')) operator = '*'
     if (e.target.classList.contains('subtract')) operator = '-'
     if (e.target.classList.contains('add')) operator = '+';
+    isPointOn = false;
   }
   if (e.target.classList.contains('digit')) {
-    if (e.target.innerText !== '.') {
+    if (e.target.innerText === '.') {
+      if (!isPointOn) {
+        numbers[numberIndex] += '.';
+        isPointOn = true;
+      }
+    } else {
       updateNumber(Number(e.target.innerText));
     }
   }
   updateDisplay();
-  if (e.target.classList.contains('digit') && e.target.innerText === '.') {
-    if (!isPointOn) {
-      display.textContent += '.';
-    }
-  }
 });
 
 function calculate() {
