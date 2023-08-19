@@ -6,6 +6,10 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 
+function add() {
+  return String(Number((Number(firstNumber) + Number(secondNumber)).toFixed(10)));
+}
+
 function addOneDigit(digit) {
   if (operator === '') {
     firstNumber = (firstNumber !== '0' && digit !== '.')
@@ -18,10 +22,61 @@ function addOneDigit(digit) {
   }
 }
 
+function calculate(operator) {
+  if (operator === '%') {
+    (operator === '')
+      ? firstNumber = percent(firstNumber)
+      : secondNumber = percent(secondNumber);
+    operator = '';
+    return;
+  }
+
+  switch (operator) {
+    case '/':
+      firstNumber = divide();
+      break;
+    case '*':
+      firstNumber = multiply();
+      break;
+    case '-':
+      firstNumber = subtract();
+      break;
+    case '+':
+      firstNumber = add();
+      break;
+  }
+  secondNumber = '';
+}
+
 function calculateMainBlockWidth() {
   return (window.innerWidth > window.innerHeight)
     ? `${window.innerHeight * 0.5}px`
     : `${window.innerWidth * 0.8}px`;
+}
+
+function divide() {
+  return String(Number((firstNumber / secondNumber).toFixed(10)));
+}
+
+function multiply() {
+  return String(Number((firstNumber * secondNumber).toFixed(10)));
+}
+
+function percent(number) {
+  let indexOfPoint;
+  if (operator === '') {
+    indexOfPoint = number.indexOf('.');
+    if (indexOfPoint === -1) {
+      return String(number / 100);
+    } else {
+      let lengthOfDecimalPart = number.slice(indexOfPoint + 1).length;
+      return (number / 100).toFixed(lengthOfDecimalPart + 2);
+    }
+  }
+}
+
+function subtract() {
+  return String(Number((firstNumber - secondNumber).toFixed(10)));
 }
 
 function removeOneDigit() {
