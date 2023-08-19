@@ -18,6 +18,8 @@ let operator = '';
 let isPointOn = false;
 let decimalPlacesCount = 0;
 
+updateDisplay();
+
 calculator.addEventListener('click', (e) => {
   if (e.target.classList.contains('clear-all')) clearAll();
   if (e.target.classList.contains('remove-last-digit')) removeLastDigit();
@@ -30,6 +32,17 @@ calculator.addEventListener('click', (e) => {
     if (e.target.classList.contains('multiply')) operator = '*'
     if (e.target.classList.contains('subtract')) operator = '-'
     if (e.target.classList.contains('add')) operator = '+';
+  }
+  if (e.target.classList.contains('digit')) {
+    if (e.target.innerText !== '.') {
+      updateNumber(Number(e.target.innerText));
+    }
+  }
+  updateDisplay();
+  if (e.target.classList.contains('digit') && e.target.innerText === '.') {
+    if (!isPointOn) {
+      display.textContent += '.';
+    }
   }
 });
 
@@ -50,6 +63,7 @@ function clearAll() {
   operator = '';
   isPointOn = false;
   decimalPlacesCount = 0;
+  updateDisplay();
 }
 
 function getNumberToChange() {
@@ -71,4 +85,25 @@ function removeLastDigit() {
 
 function turnIntoPercents() {
   getNumberToChange() /= 100;
+}
+
+function updateDisplay() {
+  display.textContent = getNumberToChange();
+}
+
+function updateNumber(digit) {
+  let number = getNumberToChange();
+  if (number > 0) {
+    if (isPointOn === false) {
+      getNumberToChange() = number * 10 + digit;
+    } else {
+      getNumberToChange() = number + digit / 10 ** decimalPlacesCount;
+    }
+  } else if (number < 0) {
+    if (isPointOn === false) {
+      getNumberToChange() = number - 10 + digit;
+    } else {
+      getNumberToChange() = number - digit / 10 ** decimalPlacesCount;
+    }
+  }
 }
