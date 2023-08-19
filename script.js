@@ -58,6 +58,18 @@ function divide() {
   return String(Number((firstNumber / secondNumber).toFixed(10)));
 }
 
+function inverseNumber() {
+  if (operator === '') {
+    firstNumber = (firstNumber.slice(0, 1) === '-')
+      ? firstNumber.slice(1)
+      : '-' + firstNumber;
+  } else {
+    secondNumber = (secondNumber.slice(0, 1) === '-')
+      ? secondNumber.slice(1)
+      : '-' + secondNumber;
+  }
+}
+
 function multiply() {
   return String(Number((firstNumber * secondNumber).toFixed(10)));
 }
