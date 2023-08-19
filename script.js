@@ -117,7 +117,7 @@ function removeOneDigit() {
 }
 
 function updateDisplay() {
-  if (operator === '' || operator === '=') {
+  if (secondNumber === '' || operator === '=') {
     if (firstNumber === '') display.textContent = 0;
     else display.textContent = firstNumber;
   }
