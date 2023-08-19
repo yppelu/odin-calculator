@@ -13,6 +13,9 @@ let firstNumber = 0;
 let secondNumber = 0;
 let operator = '';
 
+let isPointOn = false;
+let decimalPlacesCount = 0;
+
 function calculateMainBlockWidth() {
   return (window.innerWidth > window.innerHeight)
     ? `${window.innerHeight * 0.5}px`
