@@ -37,21 +37,25 @@ function add() {
 
 function addOneDigit(digit) {
   if (operator === '') {
-    if (digit === '.') {
-      if (firstNumber.indexOf('.') === -1) firstNumber += '.';
-    } else {
-      firstNumber = (firstNumber !== '0')
-        ? firstNumber += digit
-        : digit;
+    if (firstNumber.length < 15) {
+      if (digit === '.') {
+        if (firstNumber.indexOf('.') === -1) firstNumber += '.';
+      } else {
+        firstNumber = (firstNumber !== '0')
+          ? firstNumber += digit
+          : digit;
+      }
     }
   } else {
-    if (digit === '.') {
-      if (secondNumber.indexOf('.') === -1)
-        (secondNumber === '') ? secondNumber += '0.' : secondNumber += '.';
-    } else {
-      secondNumber = (secondNumber !== '0')
-        ? secondNumber += digit
-        : digit;
+    if (secondNumber.length < 15) {
+      if (digit === '.') {
+        if (secondNumber.indexOf('.') === -1)
+          (secondNumber === '') ? secondNumber += '0.' : secondNumber += '.';
+      } else {
+        secondNumber = (secondNumber !== '0')
+          ? secondNumber += digit
+          : digit;
+      }
     }
   }
 }
@@ -143,10 +147,16 @@ function removeOneDigit() {
 
 function updateDisplay() {
   if (secondNumber === '' || operator === '=') {
-    if (firstNumber === '') display.textContent = 0;
-    else display.textContent = firstNumber;
-  }
-  else {
+    if (firstNumber.length > 14) {
+      display.textContent = firstNumber.slice(0, 15);
+    } else {
+      if (firstNumber === '') display.textContent = 0;
+      else display.textContent = firstNumber;
+    }
+  } else {
+    if (secondNumber.length > 14) {
+      display.textContent = secondNumber.slice(0, 15);
+    }
     if (secondNumber === '') display.textContent = 0;
     else display.textContent = secondNumber;
   }
