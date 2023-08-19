@@ -18,7 +18,7 @@ calculator.addEventListener('click', (e) => {
   if (e.target.classList.contains('arithmetic')) {
     if (e.target.classList.contains('percent')) calculate('%');
     else {
-      if (operator !== '') {
+      if (operator !== '' && secondNumber !== '') {
         calculate();
       }
       if (e.target.classList.contains('equals')) operator = '=';
