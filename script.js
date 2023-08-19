@@ -32,8 +32,8 @@ function addOneDigit(digit) {
   }
 }
 
-function calculate() {
-  if (operator === '%') {
+function calculate(op = '') {
+  if (op === '%') {
     (operator === '')
       ? firstNumber = percent(firstNumber)
       : secondNumber = percent(secondNumber);
