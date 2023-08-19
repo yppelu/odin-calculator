@@ -8,6 +8,29 @@ let operator = '';
 
 updateDisplay();
 
+calculator.addEventListener('click', (e) => {
+  if (e.target.classList.contains('clear-all')) clearAll();
+  if (e.target.classList.contains('remove-last-digit')) removeOneDigit();
+  if (e.target.classList.contains('plus-minus')) inverseNumber();
+  if (e.target.className === 'digit') {
+    addOneDigit(e.target.innerText);
+  }
+  if (e.target.classList.contains('arithmetic')) {
+    if (e.target.classList.contains('percent')) calculate('%');
+    else {
+      if (operator !== '') {
+        calculate();
+      }
+      if (e.target.classList.contains('equals')) operator = '=';
+      if (e.target.classList.contains('divide')) operator = '/';
+      if (e.target.classList.contains('multiply')) operator = '*';
+      if (e.target.classList.contains('subtract')) operator = '-';
+      if (e.target.classList.contains('add')) operator = '+';
+    }
+  }
+  updateDisplay();
+});
+
 function add() {
   return String(Number((Number(firstNumber) + Number(secondNumber)).toFixed(10)));
 }
