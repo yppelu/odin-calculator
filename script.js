@@ -26,6 +26,8 @@ function clearAll() {
   firstNumber = 0;
   secondNumber = 0;
   operator = '';
+  isPointOn = false;
+  decimalPlacesCount = 0;
 }
 
 function inverseNumber(number) {
