@@ -7,10 +7,12 @@ const mathOperations = {
   '*'(num1, num2) { return num1 * num2 },
   '-'(num1, num2) { return num1 - num2 },
   '+'(num1, num2) { return num1 + num2 }
-}
+};
 
-let firstNumber = 0;
-let secondNumber = 0;
+const numbers = {
+  firstNumber: 0,
+  secondNumber: 0
+};
 let operator = '';
 
 let isPointOn = false;
@@ -28,6 +30,10 @@ function clearAll() {
   operator = '';
   isPointOn = false;
   decimalPlacesCount = 0;
+}
+
+function getNumberToChange() {
+  return (operator === '') ? numbers.firstNumber : numbers.secondNumber;
 }
 
 function inverseNumber(number) {
