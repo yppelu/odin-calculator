@@ -34,10 +34,9 @@ function addOneDigit(digit) {
 
 function calculate(op = '') {
   if (op === '%') {
-    (operator === '')
+    (secondNumber === '')
       ? firstNumber = percent(firstNumber)
       : secondNumber = percent(secondNumber);
-    operator = '';
     return;
   }
 
@@ -96,14 +95,12 @@ function multiply() {
 
 function percent(number) {
   let indexOfPoint;
-  if (operator === '') {
-    indexOfPoint = number.indexOf('.');
-    if (indexOfPoint === -1) {
-      return String(number / 100);
-    } else {
-      let lengthOfDecimalPart = number.slice(indexOfPoint + 1).length;
-      return (number / 100).toFixed(lengthOfDecimalPart + 2);
-    }
+  indexOfPoint = number.indexOf('.');
+  if (indexOfPoint === -1) {
+    return String(number / 100);
+  } else {
+    let lengthOfDecimalPart = number.slice(indexOfPoint + 1).length;
+    return (number / 100).toFixed(lengthOfDecimalPart + 2);
   }
 }
 
