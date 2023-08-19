@@ -30,7 +30,7 @@ function addOneDigit(digit) {
   }
 }
 
-function calculate(operator) {
+function calculate() {
   if (operator === '%') {
     (operator === '')
       ? firstNumber = percent(firstNumber)
