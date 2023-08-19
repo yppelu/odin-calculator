@@ -63,6 +63,7 @@ function inverseNumber() {
 function removeLastDigit() {
   if (display.textContent.slice(-1) === '.') {
     display.textContent = display.textContent.slice(0, -1);
+    isPointOn = false;
   } else {
     getNumberToChange() = Math.floor(getNumberToChange() / 10);
   }
