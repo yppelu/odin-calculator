@@ -16,14 +16,18 @@ let operator = '';
 let isPointOn = false;
 let decimalPlacesCount = 0;
 
+function calculateMainBlockWidth() {
+  return (window.innerWidth > window.innerHeight)
+    ? `${window.innerHeight * 0.5}px`
+    : `${window.innerWidth * 0.8}px`;
+}
+
 function clearAll() {
   firstNumber = 0;
   secondNumber = 0;
   operator = '';
 }
 
-function calculateMainBlockWidth() {
-  return (window.innerWidth > window.innerHeight)
-    ? `${window.innerHeight * 0.5}px`
-    : `${window.innerWidth * 0.8}px`;
+function removeLastDigit(number) {
+  return Math.floor(number / 10);
 }
