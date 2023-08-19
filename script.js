@@ -46,8 +46,10 @@ calculator.addEventListener('click', (e) => {
 });
 
 function calculate() {
-  numbers.firstNumber = arithmeticOperations[operator](numbers.firstNumber, numbers.secondNumber);
-  numbers.secondNumber = 0;
+  if (operator !== '=') {
+    numbers[0] = arithmeticOperations[operator](numbers[0], numbers[1]);
+    numbers[1] = 0;
+  }
 }
 
 function calculateMainBlockWidth() {
@@ -57,8 +59,8 @@ function calculateMainBlockWidth() {
 }
 
 function clearAll() {
-  firstNumber = 0;
-  secondNumber = 0;
+  numbers[0] = 0;
+  numbers[1] = 0;
   operator = '';
   isPointOn = false;
   decimalPlacesCount = 0;
@@ -83,7 +85,11 @@ function turnIntoPercents() {
 }
 
 function updateDisplay() {
-  display.textContent = numbers[numberIndex];
+  if (operator === '' || operator == '=') {
+    display.textContent = numbers[0];
+  } else {
+    display.textContent = numbers[1];
+  }
 }
 
 function updateNumber(digit) {
