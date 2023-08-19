@@ -36,7 +36,7 @@ function add() {
 }
 
 function addOneDigit(digit) {
-  if (operator === '') {
+  if (operator === '' || operator === '=' && secondNumber === '') {
     if (firstNumber.length < 15) {
       if (digit === '.') {
         if (firstNumber.indexOf('.') === -1) firstNumber += '.';
