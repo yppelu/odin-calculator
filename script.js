@@ -66,13 +66,17 @@ function divide() {
 
 function inverseNumber() {
   if (operator === '') {
-    firstNumber = (firstNumber.slice(0, 1) === '-')
-      ? firstNumber.slice(1)
-      : '-' + firstNumber;
+    if (firstNumber !== '0' && firstNumber !== '') {
+      firstNumber = (firstNumber.slice(0, 1) === '-')
+        ? firstNumber.slice(1)
+        : '-' + firstNumber;
+    }
   } else {
-    secondNumber = (secondNumber.slice(0, 1) === '-')
-      ? secondNumber.slice(1)
-      : '-' + secondNumber;
+    if (secondNumber !== '0' && secondNumber !== '') {
+      secondNumber = (secondNumber.slice(0, 1) === '-')
+        ? secondNumber.slice(1)
+        : '-' + secondNumber;
+    }
   }
 }
 
