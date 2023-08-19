@@ -12,13 +12,21 @@ function add() {
 
 function addOneDigit(digit) {
   if (operator === '') {
-    firstNumber = (firstNumber !== '0' && digit !== '.')
-      ? firstNumber += digit
-      : digit;
+    if (digit === '.') {
+      if (firstNumber.indexOf('.') === -1) firstNumber + '.';
+    } else {
+      firstNumber = (firstNumber !== '0')
+        ? firstNumber += digit
+        : digit;
+    }
   } else {
-    secondNumber = (secondNumber !== '0' && digit !== '.')
-      ? secondNumber += digit
-      : digit;
+    if (digit === '.') {
+      if (secondNumber.indexOf('.') === -1) secondNumber + '.';
+    } else {
+      secondNumber = (secondNumber !== '0')
+        ? secondNumber += digit
+        : digit;
+    }
   }
 }
 
