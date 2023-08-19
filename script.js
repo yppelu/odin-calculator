@@ -15,7 +15,7 @@ function add() {
 function addOneDigit(digit) {
   if (operator === '') {
     if (digit === '.') {
-      if (firstNumber.indexOf('.') === -1) firstNumber + '.';
+      if (firstNumber.indexOf('.') === -1) firstNumber += '.';
     } else {
       firstNumber = (firstNumber !== '0')
         ? firstNumber += digit
@@ -23,7 +23,7 @@ function addOneDigit(digit) {
     }
   } else {
     if (digit === '.') {
-      if (secondNumber.indexOf('.') === -1) secondNumber + '.';
+      if (secondNumber.indexOf('.') === -1) secondNumber += '.';
     } else {
       secondNumber = (secondNumber !== '0')
         ? secondNumber += digit
