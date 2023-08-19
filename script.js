@@ -23,7 +23,8 @@ function addOneDigit(digit) {
     }
   } else {
     if (digit === '.') {
-      if (secondNumber.indexOf('.') === -1) secondNumber += '.';
+      if (secondNumber.indexOf('.') === -1)
+        (secondNumber === '') ? secondNumber += '0.' : secondNumber += '.';
     } else {
       secondNumber = (secondNumber !== '0')
         ? secondNumber += digit
