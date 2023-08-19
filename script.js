@@ -54,6 +54,12 @@ function calculateMainBlockWidth() {
     : `${window.innerWidth * 0.8}px`;
 }
 
+function clearAll() {
+  firstNumber = '';
+  secondNumber = '';
+  operator = '';
+}
+
 function divide() {
   return String(Number((firstNumber / secondNumber).toFixed(10)));
 }
