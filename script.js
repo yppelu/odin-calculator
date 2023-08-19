@@ -72,11 +72,19 @@ function inverseNumber() {
 }
 
 function removeLastDigit() {
+  let number = numbers[numberIndex];
   if (display.textContent.slice(-1) === '.') {
-    display.textContent = display.textContent.slice(0, -1);
+    numbers[numberIndex] = Number(number);
     isPointOn = false;
   } else {
-    numbers[numberIndex] = Math.floor(numbers[numberIndex] / 10);
+    if (isPointOn === false) {
+      numbers[numberIndex] = Math.floor(number / 10);
+    } else {
+      let numberAsString = number + '';
+      let indexOfPoint = numberAsString.indexOf('.');
+      let decimalPartLength = numberAsString.slice(indexOfPoint).length - 1;
+      number[numberIndex] = (Math.floor(number * 10 ** (decimalPartLength - 1))) / 10 ** (decimalPartLength - 1);
+    }
   }
 }
 
