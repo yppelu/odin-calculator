@@ -9,10 +9,8 @@ const arithmeticOperations = {
   '+'(num1, num2) { return num1 + num2 }
 };
 
-const numbers = {
-  firstNumber: 0,
-  secondNumber: 0
-};
+const numbers = [0, 0];
+numberIndex = 0;
 let operator = '';
 
 let isPointOn = false;
@@ -21,6 +19,7 @@ let decimalPlacesCount = 0;
 updateDisplay();
 
 calculator.addEventListener('click', (e) => {
+  updateNumberIndex();
   if (e.target.classList.contains('clear-all')) clearAll();
   if (e.target.classList.contains('remove-last-digit')) removeLastDigit();
   if (e.target.classList.contains('percent')) turnIntoPercents();
@@ -66,12 +65,8 @@ function clearAll() {
   updateDisplay();
 }
 
-function getNumberToChange() {
-  return (operator === '') ? numbers.firstNumber : numbers.secondNumber;
-}
-
 function inverseNumber() {
-  getNumberToChange() = -getNumberToChange();
+  numbers[numberIndex] = -numbers[numberIndex];
 }
 
 function removeLastDigit() {
@@ -79,31 +74,38 @@ function removeLastDigit() {
     display.textContent = display.textContent.slice(0, -1);
     isPointOn = false;
   } else {
-    getNumberToChange() = Math.floor(getNumberToChange() / 10);
+    numbers[numberIndex] = Math.floor(numbers[numberIndex] / 10);
   }
 }
 
 function turnIntoPercents() {
-  getNumberToChange() /= 100;
+  numbers[numberIndex] /= 100;
 }
 
 function updateDisplay() {
-  display.textContent = getNumberToChange();
+  display.textContent = numbers[numberIndex];
 }
 
 function updateNumber(digit) {
-  let number = getNumberToChange();
+  let number = numbers[numberIndex];
   if (number > 0) {
     if (isPointOn === false) {
-      getNumberToChange() = number * 10 + digit;
+      number = number * 10 + digit;
     } else {
-      getNumberToChange() = number + digit / 10 ** decimalPlacesCount;
+      number = number + digit / 10 ** decimalPlacesCount;
     }
   } else if (number < 0) {
     if (isPointOn === false) {
-      getNumberToChange() = number - 10 + digit;
+      number = number - 10 + digit;
     } else {
-      getNumberToChange() = number - digit / 10 ** decimalPlacesCount;
+      number = number - digit / 10 ** decimalPlacesCount;
     }
+  } else {
+    number = digit;
   }
+  numbers[numberIndex] = number;
+}
+
+function updateNumberIndex() {
+  numberIndex = (operator === '') ? 0 : 1;
 }
