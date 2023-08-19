@@ -109,7 +109,7 @@ function subtract() {
 }
 
 function removeOneDigit() {
-  if (operator === '') {
+  if (secondNumber === '') {
     firstNumber = firstNumber.slice(0, -1);
   } else {
     secondNumber = secondNumber.slice(0, -1);
