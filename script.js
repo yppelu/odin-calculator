@@ -94,11 +94,12 @@ function clearAll() {
 }
 
 function divide() {
+  if (secondNumber === '0' || secondNumber === '') return '404'
   return String(Number((firstNumber / secondNumber).toFixed(10)));
 }
 
 function inverseNumber() {
-  if (operator === '') {
+  if (secondNumber === '') {
     if (firstNumber !== '0' && firstNumber !== '') {
       firstNumber = (firstNumber.slice(0, 1) === '-')
         ? firstNumber.slice(1)
