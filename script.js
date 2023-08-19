@@ -31,3 +31,7 @@ function clearAll() {
 function removeLastDigit(number) {
   return Math.floor(number / 10);
 }
+
+function turnIntoPercents(number) {
+  return number / 100;
+}
