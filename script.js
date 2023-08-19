@@ -6,6 +6,8 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 
+updateDisplay();
+
 function add() {
   return String(Number((Number(firstNumber) + Number(secondNumber)).toFixed(10)));
 }
@@ -118,6 +120,12 @@ function removeOneDigit() {
 }
 
 function updateDisplay() {
-  if (operator === '' || operator === '=') display.textContent = firstNumber;
-  else display.textContent = secondNumber;
+  if (operator === '' || operator === '=') {
+    if (firstNumber === '') display.textContent = 0;
+    else display.textContent = firstNumber;
+  }
+  else {
+    if (secondNumber === '') display.textContent = 0;
+    else display.textContent = secondNumber;
+  }
 }
