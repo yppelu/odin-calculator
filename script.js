@@ -6,6 +6,18 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 
+function addOneDigit(digit) {
+  if (operator === '') {
+    firstNumber = (firstNumber !== '0' && digit !== '.')
+      ? firstNumber += digit
+      : digit;
+  } else {
+    secondNumber = (secondNumber !== '0' && digit !== '.')
+      ? secondNumber += digit
+      : digit;
+  }
+}
+
 function calculateMainBlockWidth() {
   return (window.innerWidth > window.innerHeight)
     ? `${window.innerHeight * 0.5}px`
