@@ -20,9 +20,9 @@ let decimalPlacesCount = 0;
 
 calculator.addEventListener('click', (e) => {
   if (e.target.classList.contains('clear-all')) clearAll();
-  if (e.target.classList.contains('remove-last-digit')) removeLastDigit(getNumberToChange());
-  if (e.target.classList.contains('percent')) turnIntoPercents(getNumberToChange());
-  if (e.target.classList.contains('plus-minus')) inverseNumber(getNumberToChange());
+  if (e.target.classList.contains('remove-last-digit')) removeLastDigit();
+  if (e.target.classList.contains('percent')) turnIntoPercents();
+  if (e.target.classList.contains('plus-minus')) inverseNumber();
   if (e.target.classList.contains('arithmetic')) {
     if (operator !== '') calculate();
     if (e.target.classList.contains('equals')) operator = '=';
@@ -56,14 +56,18 @@ function getNumberToChange() {
   return (operator === '') ? numbers.firstNumber : numbers.secondNumber;
 }
 
-function inverseNumber(number) {
-  return -number;
+function inverseNumber() {
+  getNumberToChange() = -getNumberToChange();
 }
 
-function removeLastDigit(number) {
-  return Math.floor(number / 10);
+function removeLastDigit() {
+  if (display.textContent.slice(-1) === '.') {
+    display.textContent = display.textContent.slice(0, -1);
+  } else {
+    getNumberToChange() = Math.floor(getNumberToChange() / 10);
+  }
 }
 
-function turnIntoPercents(number) {
-  return number / 100;
+function turnIntoPercents() {
+  getNumberToChange() /= 100;
 }
