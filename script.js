@@ -8,13 +8,30 @@ let operator = '';
 
 updateDisplay();
 
+const allOperators = document.querySelectorAll('.operator');
+
 calculator.addEventListener('click', (e) => {
+  if (
+    !(e.target.classList.contains('calculator')
+      || e.target.classList.contains('display')
+      || e.target.classList.contains('remove-last-digit')
+      || e.target.classList.contains('percent')
+      || e.target.classList.contains('plus-minus'))
+  ) {
+    allOperators.forEach(child => {
+      if (child.classList.contains('operator-chosen')) {
+        child.classList.remove('operator-chosen');
+      }
+    });
+  }
+
   if (e.target.classList.contains('clear-all')) clearAll();
   if (e.target.classList.contains('remove-last-digit')) removeOneDigit();
   if (e.target.classList.contains('plus-minus')) inverseNumber();
   if (e.target.className === 'digit') {
     addOneDigit(e.target.innerText);
   }
+
   if (e.target.classList.contains('arithmetic')) {
     if (e.target.classList.contains('percent')) calculate('%');
     else {
@@ -22,12 +39,25 @@ calculator.addEventListener('click', (e) => {
         calculate();
       }
       if (e.target.classList.contains('equals')) operator = '=';
-      if (e.target.classList.contains('divide')) operator = '/';
-      if (e.target.classList.contains('multiply')) operator = '*';
-      if (e.target.classList.contains('subtract')) operator = '-';
-      if (e.target.classList.contains('add')) operator = '+';
+      if (e.target.classList.contains('divide')) {
+        e.target.classList.add('operator-chosen');
+        operator = '/';
+      }
+      if (e.target.classList.contains('multiply')) {
+        e.target.classList.add('operator-chosen');
+        operator = '*';
+      }
+      if (e.target.classList.contains('subtract')) {
+        e.target.classList.add('operator-chosen');
+        operator = '-';
+      }
+      if (e.target.classList.contains('add')) {
+        e.target.classList.add('operator-chosen');
+        operator = '+';
+      }
     }
   }
+
   updateDisplay();
 });
 
